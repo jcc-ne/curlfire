@@ -16,7 +16,7 @@ trap cleanup  EXIT INT QUIT TERM
 # Run older ld (pseudo condition)
 
 if [ "$#" == "0" ];  then
-    profile=default
+    profile=default*
 elif [ "$#" == "1"  ]; then
     profile=$1
 else
@@ -31,7 +31,6 @@ if [ "$#" -ge 1 ]; then
 else
     if tty -s; then
     sqlfile=$(ls -t ~/Library/Application\ Support/Firefox/Profiles/*/cookies.sqlite | head -1)
-
     sqlfile="-"     # Will use 'cat' below to read stdin
     fi
 fi
